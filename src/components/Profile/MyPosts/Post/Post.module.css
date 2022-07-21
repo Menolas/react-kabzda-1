@@ -1,0 +1,22 @@
+.item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  color: brown;
+}
+
+.item img {
+  margin-right: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.itemContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemLike {
+  font-size: 12px;
+}

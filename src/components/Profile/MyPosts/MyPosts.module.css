@@ -1,0 +1,24 @@
+.newPost textarea {
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.newPost button {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+  padding: 9px 12px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  background-color: green;
+}
+
+.postsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 20px;
+}
