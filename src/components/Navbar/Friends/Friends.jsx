@@ -8,7 +8,6 @@ const Friends = () => {
     <StoreContext.Consumer>
       {
         (store) => {
-
           let friends = store.getState().sideBar.friends
             .map(
               f =>
