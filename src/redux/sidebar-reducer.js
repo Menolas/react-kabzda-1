@@ -3,7 +3,7 @@ let initialState = {
     { id: 1, name: 'Sveta' },
     { id: 2, name: 'Andrey' },
     { id: 3, name: 'Viktor' },
-  ]
+  ],
 };
 
 const sidebarReducer = (state = initialState, action) => {
