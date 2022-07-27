@@ -22,7 +22,7 @@ const Navbar = (props) => {
           </li>
         </ul>
       </nav>
-      <Friends friends={props.state.friends} />
+      <Friends />
     </aside>
   );
 }
