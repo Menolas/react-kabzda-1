@@ -4,7 +4,7 @@ import classes from './Friends.module.css';
 const Friends = (props) => {
   
   let friends = props.sideBar.friends
-    .map(f => <li>{f.name}</li>);
+    .map(f => <li key={f.id}>{f.name}</li>);
   
   return (
     <div className={classes.friends}>
