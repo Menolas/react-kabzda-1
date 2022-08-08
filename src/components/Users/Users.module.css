@@ -1,0 +1,41 @@
+.users {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  width: 100%;
+}
+
+.userItem {
+  display: flex;
+  column-gap: 12px;
+  margin-bottom: 16px;
+  width: 450px;
+}
+
+.avatarBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatarBlock img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userInfo {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 12px;
+  border: 1px solid #555;
+  border-radius: 5px;
+}
+
+.userInfo>div {
+  display: flex;
+  flex-direction: column;
+}
