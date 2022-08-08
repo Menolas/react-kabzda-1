@@ -4,7 +4,12 @@ import classes from './Header.module.css';
 const Header = () => {
   return (
     <header className={classes.header}>
-      <img src="https://norsomnews.com/wp-content/uploads/2016/10/starbucks-logo.jpg" alt="" />
+      <div className={classes.logo}>
+        <img src="https://norsomnews.com/wp-content/uploads/2016/10/starbucks-logo.jpg" alt="" />
+      </div>
+      <div>
+        <h1>Fashion is my Profession</h1>
+      </div>
     </header>
   );
 }

@@ -41,7 +41,36 @@ let store = {
         { id: 2, name: 'Andrey' },
         { id: 3, name: 'Viktor' },
       ],
-    }
+    },
+
+    usersPage: {
+      users: [
+        {
+          id: 1,
+          followed: true,
+          photoUrl: 'https://image.shutterstock.com/z/stock-photo-dragon-head-on-the-gray-stone-background-digital-painting-1441710026.jpg',
+          fullName: 'Elena',
+          status: 'I am a developer',
+          location: { city: 'Mykolaiv', country: 'Ukraine' }
+        },
+        {
+          id: 2,
+          followed: false,
+          photoUrl: 'https://image.shutterstock.com/z/stock-photo-dragon-head-on-the-gray-stone-background-digital-painting-1441710026.jpg',
+          fullName: 'Kenneth',
+          status: 'I am a developer',
+          location: { city: 'Kotinth', country: 'Denmark' }
+        },
+        {
+          id: 4,
+          followed: true,
+          photoUrl: 'https://image.shutterstock.com/z/stock-photo-dragon-head-on-the-gray-stone-background-digital-painting-1441710026.jpg',
+          fullName: 'Adelaine',
+          status: 'I am a developer',
+          location: { city: 'Milan', country: 'Italy' }
+        },
+      ],
+    },
   },
 
   getState() {
