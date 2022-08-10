@@ -1,5 +1,4 @@
 import React from 'react';
-import UserItem from './UserItem/UserItem';
 import classes from './Users.module.css';
 import * as axios from 'axios';
 import userPhoto from '../../assets/images/dragon-head.jpg';
@@ -7,16 +6,44 @@ import userPhoto from '../../assets/images/dragon-head.jpg';
 class Users extends React.Component {
 
   componentDidMount() {
-    axios.get("/api/1.0/users").then(response => {
+    axios.get(`/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+      this.props.setUsers(response.data.items);
+      this.props.setTotalUsersCount(response.data.totalCount);
+    });
+  };
+
+  onPageChanged = (pageNumber) => {
+    this.props.setCurrentPage(pageNumber);
+    axios.get(`/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(response => {
       this.props.setUsers(response.data.items);
     });
-  }
+  };
 
   render = () => {
 
+    let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+    let pages = [];
+    for (let i = 1; i <= pagesCount; i++) {
+      pages.push(i);
+    }
+
     return (
       <div className={classes.users}>
-        
+        <div className={classes.pagination}>
+          {
+            pages.map(
+              p => {
+                return (
+                  <span
+                    key={p}
+                    className={this.props.currentPage === p ? classes.selected : ''}
+                    onClick={(e) => {this.onPageChanged(p)}}>
+                    {p}
+                  </span>
+                )
+              })
+          }
+        </div>
         {
           this.props.users.map(
             u => <div key={u.id} className={classes.userItem}>
