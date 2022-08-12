@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Users.module.css';
 import userPhoto from '../../assets/images/dragon-head.jpg';
+import { NavLink } from "react-router-dom";
 
 let Users = (props) => {
   
@@ -10,11 +11,13 @@ let Users = (props) => {
     pages.push(i);
   }
 
+  let slicedPages = pages.slice(0, 5);
+
   return (
     <div className={classes.users}>
       <div className={classes.pagination}>
         {
-          pages.map(
+          slicedPages.map(
             p => {
               return (
                 <span
@@ -31,7 +34,7 @@ let Users = (props) => {
         props.users.map(
         u => <div key={u.id} className={classes.userItem}>
                 <div className={classes.avatarBlock}>
-                  <div>
+                  <NavLink to={'/profile/' + u.id}>
                     <img
                       src={
                         u.photos.small != null
@@ -39,7 +42,7 @@ let Users = (props) => {
                           : userPhoto
                       }
                       alt="" />
-                  </div>
+                  </NavLink>
                   {u.followed ?
                     <button
                       onClick={() => {props.unfollow(u.id)} }>
