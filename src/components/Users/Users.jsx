@@ -11,13 +11,13 @@ let Users = (props) => {
     pages.push(i);
   }
 
-  let slicedPages = pages.slice(0, 5);
+  //let slicedPages = pages.slice(0, 5);
 
   return (
     <div className={classes.users}>
       <div className={classes.pagination}>
         {
-          slicedPages.map(
+          pages.map(
             p => {
               return (
                 <span
