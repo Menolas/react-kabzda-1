@@ -16,3 +16,11 @@
   height: auto;
   border-radius: 50%;
 }
+
+.loginBlock {
+  margin-left: auto;
+}
+
+.loginBlock a {
+  color: white;
+}
