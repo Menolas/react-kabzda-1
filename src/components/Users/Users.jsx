@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Users.module.css';
 import userPhoto from '../../assets/images/dragon-head.jpg';
 import { NavLink } from "react-router-dom";
-import * as axios from 'axios';
+import { usersAPI } from '../../api/api';
 
 let Users = (props) => {
   
@@ -45,30 +45,15 @@ let Users = (props) => {
                       alt="" />
                   </NavLink>
               {u.followed
-                ? <button onClick={() => {
-                  axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
-                    withCredentials: true,
-                    headers: {
-                      "API-KEY": "b58005cf-88b0-4f79-8a3d-30cc5b096349"
-                    }
-                  })
-                    .then(response => {
-                      if (response.data.resultCode === 0) {
-                        props.unfollow(u.id);
-                      }
-                    });
+                ? <button onClick={
+                  () => {
+                    usersAPI.unfollowUser(u.id)
+                    .then(data => {props.unfollow(u.id);});
                   }}>Unfollow</button>
                 : <button onClick={() => {
-                  axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-                    withCredentials: true,
-                    headers: {
-                      "API-KEY": "b58005cf-88b0-4f79-8a3d-30cc5b096349"
-                    }
-                  })
-                    .then(response => {
-                      if (response.data.resultCode === 0) {
-                        props.follow(u.id);
-                      }
+                  usersAPI.followUser(u.id)
+                    .then(data => {
+                      props.follow(u.id);
                     });
                   }}>Follow</button>
                 }
