@@ -24,7 +24,15 @@ export const usersAPI = {
       });
   },
   followUser (userId) {
-  return instance.post(`follow/${userId}`)
+    return instance.post(`follow/${userId}`)
+      .then(response => {
+        if (response.data.resultCode === 0) {
+          return response.data;
+        }
+      });
+  },
+  getProfile(userId) {
+    return instance.get(`profile/` + userId)
       .then(response => {
         if (response.data.resultCode === 0) {
           return response.data;
@@ -32,12 +40,6 @@ export const usersAPI = {
       });
   }
 
-}
-
-export const getUserProfile = (userId = 2) => {
-  return axios.get(`/api/1.0/profile/` + userId).then(response => {
-      return response.data;
-    });
 }
 
 export const login = () => {
