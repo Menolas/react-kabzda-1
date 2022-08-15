@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import Profile from './Profile';
 import { setUserProfile } from '../../redux/profile-reducer';
-import { getUserProfile } from '../../api/api';
+import { usersAPI } from '../../api/api';
 
 const withRouter = (Children) => {
   return(props) => {
@@ -20,7 +20,8 @@ class ProfileContainer extends React.Component {
       userId = 2;
     }
 
-    getUserProfile(userId).then(data => {
+    usersAPI.getProfile(userId).then(data => {
+      debugger;
       this.props.setUserProfile(data);
     });
   }
