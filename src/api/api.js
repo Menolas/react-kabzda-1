@@ -34,20 +34,29 @@ export const usersAPI = {
   getProfile(userId) {
     return instance.get(`profile/` + userId)
       .then(response => {
-        if (response.data.resultCode === 0) {
-          return response.data;
-        }
+        return response.data;
       });
-  }
-
+  },
 }
 
 export const login = () => {
   return axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
       withCredentials: true
-    }).then(response => {
+  }).then(response => {
+    debugger;
       if (response.data.resultCode === 0) {
         return response.data;
       }
     });
+}
+
+export const authAPI = {
+  me() {
+    return instance.get(`auth/me`)
+      .then(response => {
+        if (response.data.resultCode === 0) {
+          return response.data;
+        }
+      });
+  }
 }
