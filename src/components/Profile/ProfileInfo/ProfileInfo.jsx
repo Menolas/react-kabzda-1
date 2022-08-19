@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './ProfileInfo.module.css';
 import Preloader from '../../common/Preloader/Preloader';
+import userPhoto from '../../../assets/images/dragon-head.jpg';
 
 //className={classes.profileInfoBlock}
 
@@ -12,7 +13,9 @@ const ProfileInfo = (props) => {
   
   return (
     <div className={classes.profileInfo}>
-      <div className={classes.avatar}><img src={props.profile.photos.small} alt="" /></div>
+      <div className={classes.avatar}>
+        <img src={props.profile.photos.small ? props.profile.photos.small : userPhoto} alt="" />
+      </div>
       <div className={classes.name + " " + classes.profileInfoBlock}>{props.profile.fullName}</div>
       <div className={classes.lookingForJob + " " + classes.profileInfoBlock}>
         <span>{props.profile.lookingForAJob ? "Searching for Job" : "Not Searching for Job"}</span>
