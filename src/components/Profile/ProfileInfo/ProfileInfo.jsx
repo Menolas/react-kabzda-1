@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './ProfileInfo.module.css';
 import Preloader from '../../common/Preloader/Preloader';
 import userPhoto from '../../../assets/images/dragon-head.jpg';
+import ProfileStatus from './ProfileStatus';
 
 //className={classes.profileInfoBlock}
 
@@ -17,6 +18,7 @@ const ProfileInfo = (props) => {
         <img src={props.profile.photos.small ? props.profile.photos.small : userPhoto} alt="" />
       </div>
       <div className={classes.name + " " + classes.profileInfoBlock}>{props.profile.fullName}</div>
+      <ProfileStatus status="Hello!!! How are you there?!" />
       <div className={classes.lookingForJob + " " + classes.profileInfoBlock}>
         <span>{props.profile.lookingForAJob ? "Searching for Job" : "Not Searching for Job"}</span>
         <span>{props.profile.lookingForAJobDescription}</span>
