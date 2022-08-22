@@ -4,10 +4,8 @@ import Preloader from '../../common/Preloader/Preloader';
 import userPhoto from '../../../assets/images/dragon-head.jpg';
 import ProfileStatus from './ProfileStatus';
 
-//className={classes.profileInfoBlock}
-
 const ProfileInfo = (props) => {
-
+  
   if (!props.profile) {
     return <Preloader />
   }
@@ -15,10 +13,12 @@ const ProfileInfo = (props) => {
   return (
     <div className={classes.profileInfo}>
       <div className={classes.avatar}>
-        <img src={props.profile.photos.small ? props.profile.photos.small : userPhoto} alt="" />
+        <img src={props.profile.photos || props.profile.photos.small ? props.profile.photos.small : userPhoto} alt="" />
       </div>
       <div className={classes.name + " " + classes.profileInfoBlock}>{props.profile.fullName}</div>
-      <ProfileStatus status="Hello!!! How are you there?!" />
+      <ProfileStatus
+        status={props.status}
+        updateStatus={props.updateStatus} />
       <div className={classes.lookingForJob + " " + classes.profileInfoBlock}>
         <span>{props.profile.lookingForAJob ? "Searching for Job" : "Not Searching for Job"}</span>
         <span>{props.profile.lookingForAJobDescription}</span>
