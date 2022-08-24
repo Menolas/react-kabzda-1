@@ -13,7 +13,7 @@ const ProfileInfo = (props) => {
   return (
     <div className={classes.profileInfo}>
       <div className={classes.avatar}>
-        <img src={props.profile.photos || props.profile.photos.small ? props.profile.photos.small : userPhoto} alt="" />
+        <img src={props.profile.photos && props.profile.photos.small && props.profile.photos.small !== null ? props.profile.photos.small : userPhoto} alt="" />
       </div>
       <div className={classes.name + " " + classes.profileInfoBlock}>{props.profile.fullName}</div>
       <ProfileStatus

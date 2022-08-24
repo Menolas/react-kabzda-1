@@ -1,3 +1,46 @@
 .login {
   padding: 20px;
 }
+
+.title {
+  text-align: center;
+}
+
+.formBlock {
+  margin: auto;
+  padding: 25px 30px;
+  width: 400px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.inputWrap {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  margin-bottom: 18px;
+}
+
+.inputWrap input {
+  padding: 6px 9px;
+  border-radius: 4px;
+}
+
+.inputWrapCheckbox {
+  flex-direction: row;
+  align-items: center;
+}
+
+.checkboxLabel {
+  margin-left: 4px;
+  line-height: 1;
+}
+
+.inputWrap button {
+  padding: 10px 25px;
+  width: 120px;
+  color: #fff;
+  background-color: blue;
+  border-radius: 4px;
+  border: none;
+}
