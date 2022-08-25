@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './Login.module.css';
-import { Form, Field, reduxForm } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 
 const LoginForm = (props) => {
   
