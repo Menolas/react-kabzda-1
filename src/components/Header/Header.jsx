@@ -4,7 +4,7 @@ import classes from './Header.module.css';
 import Logo from '../../assets/images/logo.jpg';
 
 const Header = (props) => {
-  
+  debugger;
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
@@ -14,11 +14,11 @@ const Header = (props) => {
         <h1>Fashion is my Profession</h1>
       </div>
       <div className={classes.loginBlock}>
-        <NavLink to={'/login'}>
-          {
-            props.isAuth ? props.login : 'Login'
-          }
-        </NavLink>
+        {
+          props.isAuth
+          ? <button onClick={props.logout}>Log out</button>
+          : <NavLink to={'/login'}>Login</NavLink>
+        }
       </div>
     </header>
   );
