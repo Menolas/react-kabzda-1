@@ -2,9 +2,9 @@ import React from 'react';
 import classes from './Login.module.css';
 import { Field, reduxForm } from 'redux-form';
 import { Input } from '../common/FormsControl/FormsControl';
-import { maxLengthCreator, required } from '../../utils/validators/validators';
+import { required } from '../../utils/validators/validators';
 import { connect } from "react-redux";
-import { login, logout } from '../../redux/auth-reducer';
+import { login } from '../../redux/auth-reducer';
 import { Navigate } from "react-router-dom";
 
 const LoginForm = (props) => {
@@ -37,6 +37,11 @@ const LoginForm = (props) => {
           type={'checkbox'} />
         <span className={classes.checkboxLabel}>remember me</span>
       </div>
+      { props.error &&
+        <div className={classes.inputWrap + " " + classes.formSummaryError}>
+          {props.error}
+        </div>
+      }
       <div className={classes.inputWrap}>
         <button>Login</button>
       </div>

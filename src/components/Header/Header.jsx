@@ -4,7 +4,6 @@ import classes from './Header.module.css';
 import Logo from '../../assets/images/logo.jpg';
 
 const Header = (props) => {
-  debugger;
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
