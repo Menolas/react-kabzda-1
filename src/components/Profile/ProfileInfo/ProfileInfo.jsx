@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './ProfileInfo.module.css';
 import Preloader from '../../common/Preloader/Preloader';
 import userPhoto from '../../../assets/images/dragon-head.jpg';
-import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 const ProfileInfo = (props) => {
   
@@ -16,7 +16,7 @@ const ProfileInfo = (props) => {
         <img src={props.profile.photos && props.profile.photos.small && props.profile.photos.small !== null ? props.profile.photos.small : userPhoto} alt="" />
       </div>
       <div className={classes.name + " " + classes.profileInfoBlock}>{props.profile.fullName}</div>
-      <ProfileStatus
+      <ProfileStatusWithHooks
         status={props.status}
         updateStatus={props.updateStatus} />
       <div className={classes.lookingForJob + " " + classes.profileInfoBlock}>
