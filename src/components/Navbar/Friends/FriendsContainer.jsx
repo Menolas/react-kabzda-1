@@ -1,5 +1,5 @@
 import Friends from './Friends';
-import { connect } from 'react-redux/es/exports';
+import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
   return {
