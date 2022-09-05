@@ -1,43 +1,40 @@
-import React from "react";
+import React from 'react';
 import classes from './UserItem.module.css';
 import userPhoto from '../../../assets/images/dragon-head.jpg';
+import { NavLink } from "react-router-dom";
 
-const UserItem = (props) => {
-
+let UserItem = ({ user, followingInProgress, follow, unfollow,  }) => {
+  
   return (
     <div className={classes.userItem}>
       <div className={classes.avatarBlock}>
-        <div>
+        <NavLink to={'/profile/' + user.id}>
           <img
             src={
-              props.user.photos.small != null
-                ? props.user.photos.small
-                : userPhoto
+              user.photos.small != null
+              ? user.photos.small
+              : userPhoto
             }
             alt="" />
-        </div>
-        {props.user.followed ?
-          <button
-            onClick={() => {props.unfollow(props.user.id)} }>
-            Unfollow
-          </button> :
-          <button
-            onClick={() => { props.follow(props.user.id) }}>
-            Follow
-          </button>}
+        </NavLink>
+        <button
+          disabled={followingInProgress.some(id => id === user.id)}
+          onClick={() => { user.followed ? unfollow(user.id) : follow(user.id) }}>
+          {user.followed ? 'Unfollow' : 'Follow'}
+        </button>
       </div>
       <div className={classes.userInfo}>
         <div>
-          <span>{props.user.name}</span>
-          <span>{props.user.status}</span>
+          <span>{user.name}</span>
+          <span>{user.status}</span>
         </div>
         <div>
-          <span>{"props.user.location.country"}</span>
-          <span>{"props.user.location.city"}</span>
+          <span>{"u.location.country"}</span>
+          <span>{"u.location.city"}</span>
         </div>
       </div>
     </div>
   )
-};
+}
 
 export default UserItem;

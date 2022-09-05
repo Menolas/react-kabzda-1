@@ -28,7 +28,7 @@
   border-radius: 5px;
 }
 
-.userInfo > div {
+.userInfo>div {
   display: flex;
   flex-direction: column;
 }
