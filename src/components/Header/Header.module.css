@@ -24,3 +24,7 @@
 .loginBlock a {
   color: white;
 }
+
+.loginBlock .userName {
+  margin-right: 12px;
+}

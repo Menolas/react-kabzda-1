@@ -1,0 +1,18 @@
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  justify-content: center;
+  column-gap: 10px;
+  margin-bottom: 30px;
+}
+
+.pagination > span {
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.selected {
+  font-weight: 700;
+}

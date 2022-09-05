@@ -7,12 +7,12 @@ import { connect } from "react-redux";
 import { login } from '../../redux/auth-reducer';
 import { Navigate } from "react-router-dom";
 
-const LoginForm = (props) => {
+const LoginForm = (handleSubmit, error) => {
   
   return (
     <form
       className={classes.formBlock}
-      onSubmit={props.handleSubmit}>
+      onSubmit={handleSubmit}>
       <div className={classes.inputWrap}>
         <label>Name</label>
         <Field
@@ -37,9 +37,9 @@ const LoginForm = (props) => {
           type={'checkbox'} />
         <span className={classes.checkboxLabel}>remember me</span>
       </div>
-      { props.error &&
+      { error &&
         <div className={classes.inputWrap + " " + classes.formSummaryError}>
-          {props.error}
+          {error}
         </div>
       }
       <div className={classes.inputWrap}>
