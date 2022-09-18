@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Navbar from './components/Navbar/Navbar';
-//import ProfileContainer from './components/Profile/ProfileContainer';
-import { Route, Routes, BrowserRouter, useParams } from 'react-router-dom';
+import { Route, Routes, HashRouter, BrowserRouter, useParams } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/redux-store';
-//import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import Login from './components/Login/Login';
 import {connect} from "react-redux";
@@ -69,11 +67,11 @@ let AppContainer = compose(
   connect(mapStateToProps, { initializeApp }))(App);
   
 let SamuraiJSApp = (props) => {
-  return <BrowserRouter>
+  return <HashRouter>
     <Provider store={store}>
       <AppContainer />
     </Provider>
-  </BrowserRouter>
+  </HashRouter>
 }
 
 export default SamuraiJSApp;
