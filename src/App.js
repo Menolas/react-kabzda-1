@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Navbar from './components/Navbar/Navbar';
-import { Route, Routes, HashRouter, BrowserRouter, useParams } from 'react-router-dom';
+import { Route, Routes, HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/redux-store';
 import UsersContainer from './components/Users/UsersContainer';
@@ -11,17 +11,11 @@ import { compose } from "redux";
 import { initializeApp } from "./redux/app-reducer";
 import Preloader from './components/common/Preloader/Preloader';
 import './App.css';
-import {withSuspense} from "./hoc/withSuspense";
+import { withRouter } from './utils/withRouter';
+//import {withSuspense} from "./hoc/withSuspense";
 
 const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
-
-const withRouter = (Children) => {
-  return(props) => {
-    const match  = {params: useParams()};
-    return <Children {...props}  match = {match}/>
-  }
-}
 
 class App extends Component {
   componentDidMount() {

@@ -12,9 +12,11 @@ const Profile = (props) => {
         <img src={background} alt="" />
       </div>
       <ProfileInfo
+        savePhoto={props.savePhoto}
         profile={props.profile}
         status={props.status}
-        updateStatus={props.updateStatus} />
+        updateStatus={props.updateStatus}
+        isOwner={props.isOwner} />
       <MyPostsContainer />
     </div>
   );
