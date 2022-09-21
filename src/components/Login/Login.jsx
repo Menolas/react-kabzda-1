@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { login } from '../../redux/auth-reducer';
 import { Navigate } from "react-router-dom";
 
-const LoginForm = (handleSubmit, error) => {
+const LoginForm = ({ handleSubmit, error }) => {
   
   return (
     <form
