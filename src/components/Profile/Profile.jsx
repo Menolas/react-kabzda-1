@@ -13,6 +13,7 @@ const Profile = (props) => {
       </div>
       <ProfileInfo
         savePhoto={props.savePhoto}
+        saveProfile={props.saveProfile}
         profile={props.profile}
         status={props.status}
         updateStatus={props.updateStatus}
