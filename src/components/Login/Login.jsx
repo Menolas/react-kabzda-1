@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { login } from '../../redux/auth-reducer';
 import { Navigate } from "react-router-dom";
 
-const LoginForm = ({ handleSubmit, error }) => {
+const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
   
   return (
     <form
@@ -37,6 +37,15 @@ const LoginForm = ({ handleSubmit, error }) => {
           type={'checkbox'} />
         <span className={classes.checkboxLabel}>remember me</span>
       </div>
+
+      { captchaUrl && <img src={captchaUrl} alt="" />}
+      { captchaUrl &&
+        <Field
+          name={"captcha"}
+          component={Input}
+          placeholder="Symbols from image" />
+      }
+      
       { error &&
         <div className={classes.inputWrap + " " + classes.formSummaryError}>
           {error}
@@ -54,7 +63,7 @@ const LoginReduxForm = reduxForm({form: 'login'})(LoginForm);
 const Login = (props) => {
 
   const onSubmit = (formData) => {
-    props.login(formData.email, formData.password, formData.rememberMe);
+    props.login(formData.email, formData.password, formData.rememberMe, formData.captcha);
   }
 
   if (props.isAuth) return <Navigate to="/profile" />
@@ -62,14 +71,15 @@ const Login = (props) => {
   return (
     <div className={classes.login}>
       <h1 className={classes.title}>Login</h1>
-      <LoginReduxForm onSubmit={onSubmit} />
+      <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
     </div>
   );
 }
 
 const mapStateToProps = (state) => (
-  {
-    isAuth: state.auth.isAuth
+  { 
+    captchaUrl: state.auth.captchaUrl,
+    isAuth: state.auth.isAuth,
   }
 )
 
