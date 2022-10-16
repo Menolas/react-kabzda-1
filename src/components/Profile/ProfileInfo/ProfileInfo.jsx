@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
-import classes from './ProfileInfo.module.css';
+import styles from './ProfileInfo.module.css';
 import Preloader from '../../common/Preloader/Preloader';
 import userPhoto from '../../../assets/images/dragon-head.jpg';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 import ProfileDataForm from './ProfileDataForm/ProfileDataForm';
+import cn from "classnames";
 
 const Contact = ({ contactTitle, contactValue }) => {
   console.log(contactValue);
   return (
-    <li className={classes.socialContactsItem}>
+    <li className={cn(styles.socialContactsItem)}>
       <span>{contactTitle}:</span>
       <span>{contactValue}</span>
     </li>
@@ -19,7 +20,7 @@ const ProfileData = ({profile, isOwner, goToEditMode}) => {
   return (
     <div>
       {isOwner && <div><button onClick={goToEditMode}>edit</button></div>}
-      <div className={classes.lookingForJob + " " + classes.profileInfoBlock}>
+      <div className={cn(styles.lookingForJob, styles.profileInfoBlock)}>
         <span>{profile.lookingForAJob ? "Searching for Job" : "Not Searching for Job"}</span>
         <div>
           <span>Description:</span>
@@ -28,12 +29,12 @@ const ProfileData = ({profile, isOwner, goToEditMode}) => {
           </span>
         </div>
       </div>
-      <div className={classes.aboutMe + " " + classes.profileInfoBlock}>
+      <div className={cn(styles.aboutMe, styles.profileInfoBlock)}>
         <span>About me:</span>
         <span>{profile.aboutMe ? profile.aboutMe : ' ---'}</span>
       </div>
-      <div className={classes.socialContacts  + " " + classes.profileInfoBlock}>
-        <ul className={classes.socialContactsList}>
+      <div className={cn(styles.socialContacts, styles.profileInfoBlock)}>
+        <ul className={styles.socialContactsList}>
           {
             Object.keys(profile.contacts)
               .map(key => {
@@ -73,12 +74,12 @@ const ProfileInfo = ({profile, status, updateStatus, isOwner, savePhoto, savePro
   }
   
   return (
-    <div className={classes.profileInfo}>
-      <div className={classes.avatar}>
+    <div className={cn(styles.profileInfo)}>
+      <div className={cn(styles.avatar)}>
         <img src={profile.photos && profile.photos.small && profile.photos.small !== null ? profile.photos.small : userPhoto} alt="" />
       </div>
       {isOwner && <input type={"file"} onChange={ onMainPhotoSelected } /> }
-      <div className={classes.name + " " + classes.profileInfoBlock}>{profile.fullName}</div>
+      <div className={cn(styles.name, styles.profileInfoBlock)}>{profile.fullName}</div>
       <ProfileStatusWithHooks
         status={status}
         updateStatus={updateStatus} />

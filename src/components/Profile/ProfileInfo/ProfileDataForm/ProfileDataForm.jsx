@@ -1,34 +1,35 @@
 import React from "react";
 import { Field, reduxForm } from 'redux-form';
 import { Input, Textarea } from "../../../common/FormsControl/FormsControl";
-import classes from '../../../common/FormsControl/FormsControl.module.css';
+import styles from '../../../common/FormsControl/FormsControl.module.css';
+import cn from "classnames";
 
 const ProfileDataForm = ({handleSubmit, profile, error}) => {
   return (
     <form className="profileForm" onSubmit={handleSubmit}>
       <h2>Updating profile</h2>
-      <div className={classes.profileFormInputWrap}>
+      <div className={cn(styles.profileFormInputWrap)}>
         <label>Full Name:</label>
         <Field
           component={Input}
           name="fullName"
           placeholder="Full Name"/>
       </div>
-      <div className={classes.profileFormInputWrap}>
+      <div className={cn(styles.profileFormInputWrap)}>
         <label>Looking for a job:</label>
         <Field
           component={Input}
           name="lookingForAJob"
           type="checkbox" />
       </div>
-      <div className={classes.profileFormInputWrap}>
+      <div className={cn(styles.profileFormInputWrap)}>
         <label>My professional skills:</label>
         <Field
           component={Textarea}
           name="lookingForAJobDescription"
           placeholder="My professional skills" />
       </div>
-      <div className={classes.profileFormInputWrap}>
+      <div className={cn(styles.profileFormInputWrap)}>
         <label>About me:</label>
         <Field
           component={Textarea}
@@ -43,7 +44,7 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
                 return (
                   <div
                     key={key}
-                    className={classes.profileFormInputWrap}>
+                    className={cn(styles.profileFormInputWrap)}>
                     <label>{key}</label>
                     <Field
                       component={Input}
@@ -56,7 +57,7 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
         </div>
       </div>
       { error &&
-        <div className={classes.inputWrap + " " + classes.formSummaryError}>
+        <div className={cn(styles.inputWrap, styles.formSummaryError)}>
           {error}
         </div>
       }
