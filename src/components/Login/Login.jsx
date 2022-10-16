@@ -1,19 +1,20 @@
 import React from 'react';
-import classes from './Login.module.css';
+import styles from './Login.module.css';
+import cn from 'classnames';
 import { Field, reduxForm } from 'redux-form';
 import { Input } from '../common/FormsControl/FormsControl';
 import { required } from '../../utils/validators/validators';
 import { connect } from "react-redux";
 import { login } from '../../redux/auth-reducer';
-import { Navigate } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
 
 const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
   
   return (
     <form
-      className={classes.formBlock}
+      className={cn(styles.formBlock)}
       onSubmit={handleSubmit}>
-      <div className={classes.inputWrap}>
+      <div className={cn(styles.inputWrap)}>
         <label>Name</label>
         <Field
           name={"email"}
@@ -21,7 +22,7 @@ const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
           placeholder={'Email'}
           validate={[required]} />
       </div>
-      <div className={classes.inputWrap}>
+      <div className={cn(styles.inputWrap)}>
         <label>Password</label>
         <Field
           name={"password"}
@@ -30,12 +31,12 @@ const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
           validate={[required]}
           type={"password"} />
       </div>
-      <div className={classes.inputWrap + " " + classes.inputWrapCheckbox}>
+      <div className={cn(styles.inputWrap, styles.inputWrapCheckbox)}>
         <Field
           name={"rememberMe"}
           component={Input}
           type={'checkbox'} />
-        <span className={classes.checkboxLabel}>remember me</span>
+        <span className={cn(styles.checkboxLabel)}>remember me</span>
       </div>
 
       { captchaUrl && <img src={captchaUrl} alt="" />}
@@ -47,11 +48,11 @@ const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
       }
       
       { error &&
-        <div className={classes.inputWrap + " " + classes.formSummaryError}>
+        <div className={cn(styles.inputWrap, styles.formSummaryError)}>
           {error}
         </div>
       }
-      <div className={classes.inputWrap}>
+      <div className={cn(styles.inputWrap)}>
         <button>Login</button>
       </div>
     </form>
@@ -69,8 +70,8 @@ const Login = (props) => {
   if (props.isAuth) return <Navigate to="/profile" />
 
   return (
-    <div className={classes.login}>
-      <h1 className={classes.title}>Login</h1>
+    <div className={cn(styles.login)}>
+      <h1 className={cn(styles.title)}>Login</h1>
       <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
     </div>
   );
